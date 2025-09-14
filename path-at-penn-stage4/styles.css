@@ -1,0 +1,89 @@
+/* Stage 4: Phone-sized static opening screen (no JS) */
+:root{
+  --brand-blue: #1e3a8a;
+  --bg: #0f1115;
+  --surface: #ffffff;
+  --text: #0b0b0b;
+  --button: #d9d9d9;
+  --button-shadow: 0 2px 0 rgba(0,0,0,.35), 0 0 0 1px rgba(0,0,0,.15) inset;
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Georgia", "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.canvas{ min-height: 100%; display: grid; place-items: center; padding: 24px; }
+.phone{
+  width: 390px; height: 844px; background: var(--surface);
+  border-radius: 36px; overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08) inset;
+  display: grid; grid-template-rows: 64px 1fr;
+}
+.appbar{
+  background: var(--brand-blue);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px;
+}
+.icon-btn{ background: transparent; border: 0; padding: 8px 4px; cursor: default; }
+.icon-btn .bar{ display:block; width:26px; height:3px; background:#0b1b3a; border-radius:2px; margin:4px 0; box-shadow:0 1px 0 rgba(255,255,255,.25) inset; }
+.brand{ width:42px; height:42px; }
+.brand svg{ width:100%; height:100%; display:block; border-radius:6px; }
+.content{ padding: 40px 28px; display:grid; grid-auto-rows:max-content; row-gap:28px; }
+.welcome{ font-size:40px; line-height:1.05; margin:0; font-weight:600; color:#26324b; }
+.welcome .name{ color:#1d2a44; }
+.actions{ display:grid; row-gap:16px; }
+.action-btn{
+  display:block; text-decoration:none; background:var(--button); color:#111;
+  padding:14px 16px; border-radius:10px; box-shadow:var(--button-shadow);
+  border:1px solid rgba(0,0,0,.15); font-size:18px; text-align:center; letter-spacing:.2px; user-select:none;
+}
+.action-btn:focus{ outline:3px solid #94a3b8; outline-offset:2px; }
+
+/* Shared screen header */
+.screen-header{ display:grid; grid-template-columns:1fr auto; align-items:center; }
+.screen-title{ margin:0 0 4px 0; font-size:22px; font-weight:700; }
+.back-link{
+  text-decoration:none; font-size:20px; color:#223; padding:6px 8px; border-radius:6px;
+  border:1px solid rgba(0,0,0,.15); background:#fff; box-shadow:0 1px 0 rgba(0,0,0,.12);
+}
+
+/* Cards */
+.cards{ display:grid; row-gap:16px; }
+.card{ background:#e5e7eb; border-radius:6px; padding:16px; position:relative; }
+.card-title{ margin:0 0 8px 0; font-size:20px; font-weight:800; }
+.muted{ opacity:.9; }
+
+/* clickable overlay for register list */
+.stretched-link{ position:absolute; inset:0; z-index:1; }
+.with-actions .actions-row{ display:flex; gap:10px; margin-top:10px; position:relative; z-index:2; }
+
+/* Filters (term + search) */
+.filters{ display:grid; row-gap:14px; margin:6px 0 10px; }
+.select-wrap select{
+  appearance:none; background:#e5e7eb; border:1px solid rgba(0,0,0,.25);
+  padding:8px 36px 8px 10px; border-radius:6px; font-size:16px;
+}
+.search{ display:grid; grid-template-columns:1fr auto; gap:8px; }
+.search input{ padding:10px 12px; border:1px solid rgba(0,0,0,.3); border-radius:6px; box-shadow:0 2px 0 rgba(0,0,0,.15); }
+.search-btn{ padding:10px 12px; border:1px solid rgba(0,0,0,.3); background:#eee; border-radius:6px; }
+
+/* Pills (Add/Swap/Drop) */
+.pill{
+  display:inline-block; padding:8px 12px; border-radius:6px; font-weight:600;
+  border:1px solid rgba(0,0,0,.25); box-shadow:0 1px 0 rgba(0,0,0,.2);
+  text-decoration:none; color:#111;
+}
+.pill.green{ background:#7ccb71; } .pill.yellow{ background:#c6e265; } .pill.red{ background:#f87171; }
+
+/* Course detail specifics */
+.detail .chip-row{ display:flex; gap:10px; margin-bottom:10px; }
+.course-code{ text-align:center; margin:10px 0 12px; font-size:18px; font-weight:700; }
+.overview .paper{
+  background:#fff; border:1px solid rgba(0,0,0,.18); border-radius:4px; padding:16px; box-shadow:0 1px 0 rgba(0,0,0,.1) inset;
+}
